@@ -42,7 +42,7 @@ if (!is_null($events['events'])) {
 		$replyToken = $event['replyToken'];
 		$messages = [
 			'type' => 'text',
-			'text' => json_encode($event, JSON_PRETTY_PRINT);
+			'text' => json_encode($event, JSON_PRETTY_PRINT)
 		];
 		postback($replyToken, $messages, $access_token);
 		
