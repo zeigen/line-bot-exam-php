@@ -40,7 +40,10 @@ if (!is_null($events['events'])) {
 	foreach ($events['events'] as $event) {
 		//Reply all what event behavior received.
 		$replyToken = $event['replyToken'];
-		$messages = json_encode($event, JSON_PRETTY_PRINT);
+		$messages = [
+			'type' => 'text',
+			'text' => json_encode($event, JSON_PRETTY_PRINT);
+		];
 		postback($replyToken, $messages, $access_token);
 		
 	}
